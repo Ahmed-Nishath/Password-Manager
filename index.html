@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoS-Home</title>
+    <link rel="stylesheet" href="./Source/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="heading">
+            <img id="logo" src="./Source/Images/BE Logo.png" alt="Logo">
+            <div class="title">
+                <h1>Password Manager</h1>
+                <h2>Developed by Nishath</h2>
+            </div>  
+        </div>
+
+        <div id="darkMode-container"><button onclick="darkMode()" id="dark-button"><img id="dark-logo" src="./Source/Images/dark.png" alt="Logo"><p id="dark-text">Dark mode</p></button></div>  
+       
+        <div class="form-container">
+            <form  id="form">
+                <ul>
+                    <li class="inputs">
+                        <lable for="phrase">Key phrase</lable>
+                        <input id="phrase" name="phrase" placeholder=" 3B" type="password"/>
+                        <div class="error"></div>
+                    </li>
+                    <li class="inputs">
+                        <lable for="pvv">PVV</lable>
+                        <input id="pvv" name="pvv" type="password"/>
+                        <div class="error"></div>
+                    </li> 
+                </ul>
+                <div class="button">
+                    <button id="submit-btn" type="submit">Generate</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="./Source/functions.js"></script>
+
+    <div id="Password-container">
+ 
+    </div>
+
+    <div id="CopyMessage">Copied to clipboard</div>
+
+    <script> 
+        function showNotification() {
+            var x = document.getElementById("CopyMessage");
+            x.className = "showMessage";
+            setTimeout(function(){ x.className = x.className.replace("showMessage", ""); }, 2900);
+        }
+
+        function copyText(id) { 
+            showNotification()
+            var text = document.getElementById(id); 
+            navigator.clipboard.writeText(text.innerHTML); 
+        } 
+
+        var i=0;
+
+        function showPassword(id) {
+            if(i%2==0)
+            document.getElementById(id).style = "-webkit-text-security: none;";
+            else
+            document.getElementById(id).style = "-webkit-text-security: disc;";
+            i++;
+        }
+    </script> 
+
+    <footer>
+        <div>Copyright &copy; 2023 Nishath BE</div>
+    </footer>
+</body>
+</html>
